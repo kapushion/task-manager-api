@@ -8,25 +8,25 @@ const taskRouter = require('./routers/task')
 const port = process.env.PORT 
 
 
-const multer = require('multer')
-const upload = multer({
-    dest: 'images',
-    limit: {
-        fileSize: 1000000
-    },
-    fileFilter(req,file,cb) {
+// const multer = require('multer')
+// const upload = multer({
+//     dest: 'images',
+//     limit: {
+//         fileSize: 1000000
+//     },
+//     fileFilter(req,file,cb) {
 
-        if(!file.originalname.match(/\.(doc|docx)$/)) {
-          return cb(new Error('Please upload a word document'))
-        }
+//         if(!file.originalname.match(/\.(doc|docx)$/)) {
+//           return cb(new Error('Please upload a word document'))
+//         }
 
-        cb(undefined, true)
-    }
-})
+//         cb(undefined, true)
+//     }
+// })
 
-app.post('/upload', upload.single('upload'),(req,res)=> {
-    res.send()
-})
+// app.post('/upload', upload.single('upload'),(req,res)=> {
+//     res.send()
+// })
 
 app.use(express.json())
 app.use(userRouter)
@@ -38,8 +38,8 @@ app.use(taskRouter)
 
 app.listen(port, ()=> console.log('server is up on '+ port))
 
-const Task = require('./models/tasks')
-const User = require('./models/user')
+// const Task = require('./models/tasks')
+// const User = require('./models/user')
 
 // const myFunc = async () => {
 //     const password = 'atrerocks123'
